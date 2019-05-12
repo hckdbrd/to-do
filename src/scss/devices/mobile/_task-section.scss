@@ -1,0 +1,54 @@
+.task-section {
+    
+    &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+        &__item {
+            position: relative;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            
+            width: 90%;
+
+            padding: 13px 45px;
+
+            margin: 40px 0 0 0;
+
+            background-color: $grey-task-body;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+            color: $grey-text;
+            line-height: 18px;
+            text-decoration: line-through;
+
+            &::before {
+                content: "Responsible: Anton";
+                display: block;
+                position: absolute;
+                top: -18px;
+                left: 18px;
+
+                font-size: 10px;
+                color: $grey-status;
+            }
+
+            &::after {
+                content: "edited | completed";
+                display: block;
+                position: absolute;
+                top: -18px;
+                right: 18px;
+
+                font-size: 10px;
+                color: $grey-status;
+            }
+        }
+    }
+}

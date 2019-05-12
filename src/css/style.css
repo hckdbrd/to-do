@@ -1,0 +1,253 @@
+.font-bold {
+  font-family: "RobotoBold", sans-serif;
+}
+
+.font-regular {
+  font-family: "RobotoRegular", sans-serif;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none;
+}
+
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*--------------------------*/
+/*---------- FONTS ---------*/
+/*--------------------------*/
+@font-face {
+  font-family: "RobotoBold";
+  src: url("../fonts/RobotoBold/RobotoBold.eot");
+  src: url("../fonts/RobotoBold/RobotoBold.eot") format("embedded-opentype"), url("../fonts/RobotoBold/RobotoBold.woff2") format("woff2"), url("../fonts/RobotoBold/RobotoBold.woff") format("woff"), url("../fonts/RobotoBold/RobotoBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoRegular";
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot");
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot") format("embedded-opentype"), url("../fonts/RobotoRegular/RobotoRegular.woff2") format("woff2"), url("../fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("../fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "RobotoRegular", sans-serif;
+}
+
+.checkbox {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  z-index: 1;
+  width: 15px;
+  height: 15px;
+  margin: 1px 15px 0 20px;
+  background-image: url(../icons/check-box-empty.svg);
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+}
+
+.checked {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  z-index: 1;
+  width: 9px;
+  height: 8px;
+  margin: -9px 0 0 3px;
+  background-image: url(../icons/checked.svg);
+  background-repeat: no-repeat;
+  background-size: 9px 8px;
+}
+
+.trash-bin {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  z-index: 1;
+  display: block;
+  fill: #a6a6a6;
+  width: 13px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: 13px 16px;
+}
+
+.trash-bin:hover {
+  fill: #525252;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+    font-size: 20px;
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 0 0 25px 25px;
+  }
+  .header_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/architecture.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: 50%;
+  }
+  .header_background::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .header__greeting {
+    font-family: "RobotoBold", sans-serif;
+  }
+  .header__date-block {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    width: 100%;
+  }
+  .task-section__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .task-section__list__item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    padding: 13px 45px;
+    margin: 40px 0 0 0;
+    background-color: #d6d6d6;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #525252;
+    line-height: 18px;
+    text-decoration: line-through;
+  }
+  .task-section__list__item::before {
+    content: "Responsible: Anton";
+    display: block;
+    position: absolute;
+    top: -18px;
+    left: 18px;
+    font-size: 10px;
+    color: #959595;
+  }
+  .task-section__list__item::after {
+    content: "edited | completed";
+    display: block;
+    position: absolute;
+    top: -18px;
+    right: 18px;
+    font-size: 10px;
+    color: #959595;
+  }
+  .input-block {
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    background-color: #111111;
+    border-radius: 25px 25px 0 0;
+  }
+  .input-block__add-button {
+    position: absolute;
+    display: block;
+    top: 4px;
+    right: 15px;
+    display: block;
+    font-size: 28px;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .input-block__task-input {
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: underline;
+    text-align: center;
+  }
+  .input-block__task-input::placeholder {
+    color: #ffffff;
+  }
+  .input-block__task-input:hover {
+    color: #ffffff;
+  }
+  .input-block__task-input:focus::placeholder {
+    color: transparent;
+  }
+  .input-block__task-input:focus {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,22 @@
+// colors
+$black: #000000;
+$black-input-box: #111111;
+$grey-text: #525252;
+$grey-status: #959595;
+$grey-trash-bin: #a6a6a6;
+$grey-task-body: #d6d6d6;
+$white: #ffffff;
+$red: #ff0000;
+$yellow: #ffff00;
+$green: #00ff00;
+// fonts
+$font-bold: "RobotoBold", sans-serif;
+$font-regular: "RobotoRegular", sans-serif;
+
+
+.font-bold {
+    font-family: $font-bold;
+}
+.font-regular {
+    font-family: $font-regular;
+}

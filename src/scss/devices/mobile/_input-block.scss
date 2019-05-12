@@ -1,0 +1,66 @@
+.input-block {
+    position: fixed;
+    z-index: 3;
+
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 45px;
+    
+    background-color: $black-input-box;
+
+    border-radius: 25px 25px 0 0;
+
+
+    
+    &__add-button {
+        position: absolute;
+        display: block;
+        top: 4px;
+        right: 15px;
+
+
+        display: block;
+
+        // margin: -3px -10px 0 0;
+
+        font-size: 28px;
+        color: $white;
+
+        background-color: transparent;
+
+        border: none;
+
+        cursor: pointer;
+    }
+    &__task-input {
+        //Even if text-colot is #ffffff - input text-color for some reasons dimmer than usual
+        
+        border: none;
+        background-color: transparent;
+        color: $white;
+        font-size: 16px;
+        text-decoration: underline;
+        text-align: center;
+
+        &::placeholder {
+            color: $white;
+        }
+        //style for correct user interaction with input text;
+        &:hover {
+            color: $white;
+        }
+        &:focus::placeholder {color: transparent;}
+        &:focus {
+            color: $white;
+            text-decoration: none;
+        }
+        
+    }
+}
