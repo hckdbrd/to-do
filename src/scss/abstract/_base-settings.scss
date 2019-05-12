@@ -6,22 +6,12 @@ html {
     font-family: $font-regular;
 }
 
-// i[data-state="checked"] {
-//     position: absolute;
-//     top: 13px;
-//     left: 0;
-
-//     z-index: 1;
-
-//     width: 9px;
-//     height: 8px;
-
-//     margin: -9px 0 0 3px;
-
-//     background-image: url(../icons/checked.svg);
-//     background-repeat: no-repeat;
-//     background-size: 9px 8px;
-// }
+.font-bold {
+    font-family: $font-bold;
+}
+.font-regular {
+    font-family: $font-regular;
+}
 
 .checkbox {
     position: absolute;
