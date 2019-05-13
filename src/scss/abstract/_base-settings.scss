@@ -1,5 +1,6 @@
 * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html {
@@ -7,8 +8,7 @@ html {
 
     /* USER-SELECTION */
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
+    -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, only Chrome and Opera */
@@ -128,7 +128,8 @@ html {
     background-size: 13px 16px;
 
     &:hover {
-        filter: brightness(0.8);
+        -webkit-filter: brightness(0.8);
+                filter: brightness(0.8);
         cursor: pointer;
     } 
 }
