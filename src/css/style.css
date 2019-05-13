@@ -64,6 +64,19 @@ table {
 
 html {
   font-family: "RobotoRegular", sans-serif;
+  /* USER-SELECTION */
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, only Chrome and Opera */
 }
 
 .font-bold {
@@ -74,47 +87,102 @@ html {
   font-family: "RobotoRegular", sans-serif;
 }
 
-.checkbox {
+.block {
+  display: block;
+}
+
+.task-text:hover {
+  cursor: pointer;
+}
+
+.responsible, .progress {
+  display: block;
   position: absolute;
-  top: 13px;
+  top: -18px;
+  font-size: 10px;
+  color: #959595;
+}
+
+.responsible:hover, .progress:hover {
+  cursor: pointer;
+  color: #424242;
+}
+
+.responsible {
+  left: 18px;
+}
+
+.progress {
+  right: 18px;
+}
+
+.awaiting-mark::after, .active-mark::after, .completed-mark::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 6px;
+  right: -10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+}
+
+.awaiting-mark::after {
+  background-color: yellow;
+}
+
+.active-mark::after {
+  background-color: lime;
+}
+
+.completed-mark::after {
+  background-color: #959595;
+}
+
+.unchecked, .checked {
+  position: absolute;
+  top: auto;
   left: 0;
   z-index: 1;
   width: 15px;
   height: 15px;
   margin: 1px 15px 0 20px;
-  background-image: url(../icons/check-box-empty.svg);
+  background-image: url(../icons/checkbox.png);
   background-repeat: no-repeat;
   background-size: 15px 15px;
 }
 
+.unchecked:hover, .checked:hover {
+  cursor: pointer;
+}
+
+.unchecked {
+  background-image: url(../icons/checkbox.png);
+}
+
 .checked {
-  position: absolute;
-  top: 13px;
-  left: 0;
-  z-index: 1;
-  width: 9px;
-  height: 8px;
-  margin: -9px 0 0 3px;
-  background-image: url(../icons/checked.svg);
-  background-repeat: no-repeat;
-  background-size: 9px 8px;
+  background-image: url(../icons/checked.png);
 }
 
 .trash-bin {
   position: absolute;
-  top: 13px;
+  top: auto;
   right: 15px;
-  z-index: 1;
   display: block;
-  fill: #a6a6a6;
   width: 13px;
   height: 16px;
+  background-image: url(../icons/trash-bin.svg);
   background-repeat: no-repeat;
   background-size: 13px 16px;
 }
 
 .trash-bin:hover {
-  fill: #525252;
+  filter: brightness(0.8);
+  cursor: pointer;
+}
+
+.lineThrough {
+  text-decoration: line-through;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -127,7 +195,7 @@ html {
     height: 130px;
     overflow: hidden;
     font-size: 20px;
-    color: #ffffff;
+    color: white;
     padding: 20px 30px;
     border-radius: 0 0 25px 25px;
   }
@@ -184,25 +252,6 @@ html {
     font-size: 14px;
     color: #525252;
     line-height: 18px;
-    text-decoration: line-through;
-  }
-  .task-section__list__item::before {
-    content: "Responsible: Anton";
-    display: block;
-    position: absolute;
-    top: -18px;
-    left: 18px;
-    font-size: 10px;
-    color: #959595;
-  }
-  .task-section__list__item::after {
-    content: "edited | completed";
-    display: block;
-    position: absolute;
-    top: -18px;
-    right: 18px;
-    font-size: 10px;
-    color: #959595;
   }
   .input-block {
     position: fixed;
@@ -225,29 +274,32 @@ html {
     right: 20px;
     display: block;
     font-size: 28px;
-    color: #ffffff;
+    color: white;
     background-color: transparent;
     border: none;
+  }
+  .input-block__add-button:hover {
+    color: #525252;
   }
   .input-block__task-input {
     border: none;
     background-color: transparent;
-    color: #ffffff;
     font-size: 16px;
-    text-decoration: underline;
     text-align: center;
+    color: white;
   }
   .input-block__task-input::placeholder {
-    color: #ffffff;
+    color: white;
+    text-decoration: underline;
   }
-  .input-block__task-input:hover {
-    color: #ffffff;
+  .input-block__task-input:hover::placeholder {
+    color: white;
   }
   .input-block__task-input:focus::placeholder {
     color: transparent;
   }
   .input-block__task-input:focus {
-    color: #ffffff;
+    color: white;
     text-decoration: none;
   }
 }

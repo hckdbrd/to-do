@@ -1,14 +1,15 @@
 // colors
-$black: #000000;
-$black-input-box: #111111;
-$grey-text: #525252;
-$grey-status: #959595;
-$grey-trash-bin: #a6a6a6;
-$grey-task-body: #d6d6d6;
-$white: #ffffff;
-$red: #ff0000;
-$yellow: #ffff00;
-$green: #00ff00;
+$black: rgb(0, 0, 0);
+$black-input-box: rgb(17, 17, 17);
+$grey-text: rgb(82, 82, 82);
+$grey-text-active: rgb(66, 66, 66);
+$grey-trash-bin: rgb(166, 166, 166);
+$grey-task-body: rgb(214, 214, 214);
+$white: rgb(255, 255, 255);
+$status-grey: rgb(149, 149, 149);
+$status-red: rgb(255, 0, 0);
+$status-yellow: rgb(255, 255, 0);
+$status-green: rgb(0, 255, 0);
 // fonts
 $font-bold: "RobotoBold", sans-serif;
 $font-regular: "RobotoRegular", sans-serif;

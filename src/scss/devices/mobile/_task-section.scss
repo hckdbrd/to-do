@@ -29,29 +29,6 @@
             font-size: 14px;
             color: $grey-text;
             line-height: 18px;
-            text-decoration: line-through;
-
-            &::before {
-                content: "Responsible: Anton";
-                display: block;
-                position: absolute;
-                top: -18px;
-                left: 18px;
-
-                font-size: 10px;
-                color: $grey-status;
-            }
-
-            &::after {
-                content: "edited | completed";
-                display: block;
-                position: absolute;
-                top: -18px;
-                right: 18px;
-
-                font-size: 10px;
-                color: $grey-status;
-            }
         }
     }
 }

@@ -4,18 +4,90 @@
 
 html {
     font-family: $font-regular;
+
+    /* USER-SELECTION */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, only Chrome and Opera */
+
 }
 
+//---------- Fonts ----------//
 .font-bold {
     font-family: $font-bold;
 }
 .font-regular {
     font-family: $font-regular;
 }
+//---------------------------//
 
-.checkbox {
+
+
+//---------- Text style ----------//
+.block {
+    display: block;
+}
+.task-text:hover {
+    cursor: pointer;
+}
+//--------------------------------//
+
+//---------- Task States ----------//
+.responsible, .progress {
+    display: block;
     position: absolute;
-    top: 13px;
+    top: -18px;
+
+    font-size: 10px;
+    color: $status-grey;
+
+    &:hover {
+        cursor: pointer;
+        color: $grey-text-active;
+    }
+}
+
+.responsible {
+    left: 18px;
+}
+
+.progress {
+    right: 18px;
+}
+
+.awaiting-mark, .active-mark, .completed-mark{
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+    
+        top: 6px;
+        right: -10px;
+    
+        width: 8px;
+        height: 8px;
+    
+        border-radius: 100%;
+
+    }
+
+}
+.awaiting-mark::after {
+    background-color: $status-yellow;
+}
+.active-mark::after {
+    background-color: $status-green;
+}
+.completed-mark::after {
+    background-color: $status-grey;
+}
+
+.unchecked, .checked {
+    position: absolute;
+    top: auto;
     left: 0;
 
     z-index: 1;
@@ -25,44 +97,43 @@ html {
 
     margin: 1px 15px 0 20px;
 
-    background-image: url(../icons/check-box-empty.svg);
+    background-image: url(../icons/checkbox.png);
     background-repeat: no-repeat;
-    background-size: 15px 15px; 
+    background-size: 15px 15px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.unchecked {
+    background-image: url(../icons/checkbox.png);
 }
 .checked {
-    position: absolute;
-    top: 13px;
-    left: 0;
-
-    z-index: 1;
-
-    width: 9px;
-    height: 8px;
-
-    margin: -9px 0 0 3px;
-
-    background-image: url(../icons/checked.svg);
-    background-repeat: no-repeat;
-    background-size: 9px 8px;
+    background-image: url(../icons/checked.png);
 }
+
 .trash-bin {
     position: absolute;
-    top: 13px;
+    top: auto;
     right: 15px;
 
-    z-index: 1;
-
     display: block;
-
-    fill: $grey-trash-bin;
 
     width: 13px;
     height: 16px;
 
+    background-image: url(../icons/trash-bin.svg);
     background-repeat: no-repeat;
     background-size: 13px 16px;
 
     &:hover {
-        fill: $grey-text;
+        filter: brightness(0.8);
+        cursor: pointer;
     } 
 }
+
+.lineThrough {
+    text-decoration: line-through;
+}
+//---------------------------------//

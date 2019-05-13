@@ -18,13 +18,11 @@
     border-radius: 25px 25px 0 0;
 
 
-    
     &__add-button {
         position: absolute;
         display: block;
         top: 4px;
         right: 20px;
-
 
         display: block;
 
@@ -34,29 +32,36 @@
         background-color: transparent;
 
         border: none;
+
+        &:hover {
+            color: $grey-text;
+        }
     }
+
     &__task-input {
         //Even if text-colot is #ffffff - input text-color for some reasons dimmer than usual
         
         border: none;
         background-color: transparent;
-        color: $white;
         font-size: 16px;
-        text-decoration: underline;
         text-align: center;
+        color: $white;
+        
 
+        //style for correct user interaction with input text;
         &::placeholder {
             color: $white;
+            text-decoration: underline;
         }
-        //style for correct user interaction with input text;
-        &:hover {
+        &:hover::placeholder {
             color: $white;
         }
-        &:focus::placeholder {color: transparent;}
+        &:focus::placeholder {
+            color: transparent;
+        }
         &:focus {
             color: $white;
             text-decoration: none;
         }
-        
     }
 }
