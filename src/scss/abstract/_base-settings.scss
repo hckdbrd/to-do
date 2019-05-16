@@ -58,13 +58,13 @@ html {
     right: 18px;
 }
 
-.awaiting-mark, .active-mark, .completed-mark{
+.awaiting, .active, .completed{
     &::after {
         content: "";
         position: absolute;
         display: block;
     
-        top: 6px;
+        top: 5.5px;
         right: -10px;
     
         width: 8px;
@@ -75,13 +75,13 @@ html {
     }
 
 }
-.awaiting-mark::after {
+.awaiting::after {
     background-color: $status-yellow;
 }
-.active-mark::after {
+.active::after {
     background-color: $status-green;
 }
-.completed-mark::after {
+.completed::after {
     background-color: $status-grey;
 }
 

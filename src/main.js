@@ -5,7 +5,7 @@
 
 function pageDate() {
 
-    let nowDate, fullDate, month, date, day, fullTime, hours, minutes;
+    let taskTime, nowDate, fullDate, month, date, day, fullTime, hours, minutes;
 
     nowDate = new Date();
 
@@ -148,9 +148,9 @@ const addBTN = document.getElementById("add-button");
 // Adding task by pressing Enter
 document.addEventListener("keyup", (event) => {
     if (event.keyCode == 13) {
-        const task = inputField.value;
+        let task = inputField.value;
         if (task) {
-            addTask(task, id, false, false);
+            addTask(task, id, false, false, awaiting);
             taskList.push(
                 {
                     name: task,
@@ -170,13 +170,14 @@ document.addEventListener("keyup", (event) => {
 addBTN.addEventListener("click", () => {
     const task = inputField.value;
     if (task) {
-        addTask(task, id, false, false);
+        addTask(task, id, false, false, awaiting);
         taskList.push(
             {
                 name: task,
                 id: id,
                 done: false,
-                trash: false
+                trash: false,
+                progress: awaiting
             }
         );
         inputField.value = "";
@@ -202,9 +203,16 @@ const UNCHECK = "unchecked";
 
 const LINE_THROUGH = "lineThrough";
 
+let currentProgress = "";
+
+const awaiting = "awaiting";
+const active = "active";
+const completed = "completed";
+
+
 // ---------- Functions ---------- //
 
-function addTask(task, id, done, trash) {
+function addTask(task, id, done, trash, progress) {
 
     if (trash) return;
 
@@ -213,10 +221,12 @@ function addTask(task, id, done, trash) {
 
     const position = "beforeEnd";
 
-    let taskBody = `<li class="task-section__list__item">
+    currentProgress = progress;
+
+    const taskBody = `<li class="task-section__list__item">
                         <div class="task-status">
                             <div class="responsible">Responsible: Anton</div>
-                            <div class="progress awaiting-mark edited">awaiting</div>
+                            <div class="progress ${awaiting}">awaiting</div>
                         </div>
                         <i id=${id} class="${DONE} complete"></i>
                         <p class="task-text ${LINE}">${task}</p>
@@ -229,11 +239,26 @@ function addTask(task, id, done, trash) {
 }
 
 function completeTask(element) {
+    
+    const taskText = element.parentNode.getElementsByClassName("task-text")[0];
+    const listItemProgress = element.previousElementSibling.getElementsByClassName("progress")[0];
+
     element.classList.toggle(CHECK);
     element.classList.toggle(UNCHECK);
 
-    element.parentNode.getElementsByClassName("task-text")[0].classList.toggle(LINE_THROUGH);
+    taskText.classList.toggle(LINE_THROUGH);
+
     taskList[element.id].done = taskList[element.id].done ? false : true;
+
+    listItemProgress.classList.toggle(currentProgress);
+    listItemProgress.classList.toggle(completed);
+    
+    if ( listItemProgress.classList.contains(completed) ) {
+        listItemProgress.textContent = completed;
+    } else {
+        listItemProgress.textContent = currentProgress;
+    }
+    
 }
 
 
@@ -242,14 +267,33 @@ function deleteTask(element) {
     taskList[element.id].trash = true;
 }
 
+function changeProgress(element) {
+    if ( element.classList.contains(awaiting) ) {
+        element.classList.toggle(awaiting);
+        element.classList.add(active);
+        currentProgress = active;
+        element.textContent = active;
+
+    } else if ( element.classList.contains(active) ) {
+        element.classList.toggle(active);
+        element.classList.add(awaiting);
+        currentProgress = awaiting;
+        element.textContent = awaiting;
+    }
+}
+
 list.addEventListener("click", function(event) {
     let element = event.target;
+
     const completeClass = element.classList.contains("complete");
-    const deleteClass = element.classList.contains("complete");
+    const deleteClass = element.classList.contains("delete");
+    const progressStatus = element.classList.contains("progress");
     if (completeClass){
         completeTask(element);
     } else if (deleteClass) {
         deleteTask(element);
+    } else if (progressStatus) {
+        changeProgress(element);
     }
 
 });
